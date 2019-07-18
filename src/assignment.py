@@ -105,7 +105,8 @@ if __name__ == '__main__':
 
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-
+"""
+#List comprehension Attempt
 #v.y is the y value for the right wrist
             RW = ([(POSE_COCO_BODY_PARTS[4], v.y)[1] for RWrist, v in human.body_parts.items()][0])
             print(RW)
@@ -117,7 +118,7 @@ if __name__ == '__main__':
             print(LW)
             #testing if wrists are above the neck
             if RW > N or LW > N:
-                    hail_taxi(image)
+                    hail_taxi(image)"""
 
 
             # Debugging statement: remove before demonstration.
