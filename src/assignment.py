@@ -46,7 +46,6 @@ POSE_COCO_BODY_PARTS = {
     17: "LEar",
     18: "Background",
 }
-
 # call this when a taxi is being hailed!
 def hail_taxi(img):
     print("Someone is hailing a taxi!")
@@ -106,7 +105,20 @@ if __name__ == '__main__':
 
             # TODO ensure it only does this when someone is hailing a taxi.
             # That is, an arm is above their head.
-            hail_taxi(image)
+
+#v.y is the y value for the right wrist
+            RW = ([(POSE_COCO_BODY_PARTS[4], v.y)[1] for RWrist, v in human.body_parts.items()][0])
+            print(RW)
+#w.y gives the y value of the right shoulder
+            N = ([(POSE_COCO_BODY_PARTS[1], w.y)[1] for Neck, w in human.body_parts.items()][0])
+            print(N)
+#x.y gives the x valye of the left wrist
+            LW = ([(POSE_COCO_BODY_PARTS[7], x.y)[1] for LWrist, x in human.body_parts.items()][0])
+            print(LW)
+            #testing if wrists are above the neck
+            if RW > N or LW > N:
+                    hail_taxi(image)
+
 
             # Debugging statement: remove before demonstration.
             # print([(POSE_COCO_BODY_PARTS[k], v.x, v.y) for k,v in human.body_parts.items()])
@@ -123,3 +135,4 @@ if __name__ == '__main__':
             break
 
     cv2.destroyAllWindows()
+
