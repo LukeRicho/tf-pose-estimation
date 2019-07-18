@@ -130,7 +130,7 @@ if __name__ == '__main__':
                     RW = v.y
                 elif POSE_COCO_BODY_PARTS[k] is "LWrist":
                     LW = v.y
-                #Getting the y value of the neck
+                #Getting the y value of the neck.
                 elif POSE_COCO_BODY_PARTS[k] is "Neck":
                     N = v.y
             #Checking if the wrists are above the neck on the person on the webcam image
